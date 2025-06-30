@@ -1,4 +1,4 @@
-const sequelize = require('../config/basededatos');
+const sequelize = require('../config/database');
 const Estudiante = require('./estudiante.model');
 const Pasantia = require('./pasantia.model');
 const Beca = require('./beca.model');
@@ -8,7 +8,7 @@ const PostulacionBeca = require('./postulacionBeca.model');
 
 
 Estudiante.hasMany(PostulacionPas, { foreignKey: 'estudianteId', as: 'postulacionPas' });
-PostulacionPas.belongsTo(Estudiante, { foreignKey: 'estudianteId', as: 'sestudiante' });
+PostulacionPas.belongsTo(Estudiante, { foreignKey: 'estudianteId', as: 'estudiante' });
 
 Estudiante.hasMany(PostulacionBeca, { foreignKey: 'estudianteId', as: 'postulacionBeca' });
 PostulacionBeca.belongsTo(Estudiante, { foreignKey: 'estudianteId', as: 'estudiante' });
@@ -16,12 +16,12 @@ PostulacionBeca.belongsTo(Estudiante, { foreignKey: 'estudianteId', as: 'estudia
 
 
 Pasantia.hasMany(PostulacionPas, { foreignKey: 'pasantiaId', as: 'postulaciones' });
-PostulacionPas.belongsTo(Beca, { foreignKey: 'pasantiaId', as: 'pasantia' });
+PostulacionPas.belongsTo(Pasantia, { foreignKey: 'pasantiaId', as: 'pasantia' });
 
 
 
-Beca.hasMany(PostulacionBeca, { foreignKey: 'becaId', as: 'applications' });
-PostulacionBeca.belongsTo(Beca, { foreignKey: 'becaId', as: 'Beca' });
+Beca.hasMany(PostulacionBeca, { foreignKey: 'becaId', as: 'postulaciones' });
+PostulacionBeca.belongsTo(Beca, { foreignKey: 'becaId', as: 'beca' });
 
 
 

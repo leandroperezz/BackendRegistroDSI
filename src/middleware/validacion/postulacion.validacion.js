@@ -1,6 +1,5 @@
 const { body, validationResult } = require('express-validator');
 
-// Postulación a Pasantía
 exports.validarPostulacionPas = [
   body('estudianteId')
     .notEmpty().withMessage('El ID del estudiante es requerido.')
@@ -10,7 +9,6 @@ exports.validarPostulacionPas = [
     .isInt().withMessage('El ID de la pasantía debe ser un número entero.'),
 ];
 
-// Postulación a Beca
 exports.validarPostulacionBeca = [
   body('estudianteId')
     .notEmpty().withMessage('El ID del estudiante es requerido.')

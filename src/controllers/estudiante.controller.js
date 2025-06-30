@@ -24,7 +24,7 @@ exports.crearEstudiante = async (req, res) => {
     const newEstudiante = await Estudiante.create(req.body);
     const estudianteResponse = newEstudiante.toJSON();
     delete estudianteResponse.contrasena;
-    res.status(201).json(estudianteResponseResponse);
+    res.status(201).json(estudianteResponse);
   } catch (error) {
     console.error('Error al crear estudiante:', error);
     res.status(400).json({ message: error.message || 'Error al registrar estudiante.' });
@@ -57,7 +57,7 @@ exports.actualizarEstudiante = async (req, res) => {
 
     const [updatedRows] = await Estudiante.update(req.body, {
       where: { id: req.params.id },
-      individualHooks: true, // Para hashear contraseña si se actualiza
+      individualHooks: true,
     });
     if (updatedRows === 0) {
       return res.status(404).json({ message: 'Estudiante no encontrado o sin cambios.' });
@@ -72,7 +72,7 @@ exports.actualizarEstudiante = async (req, res) => {
   }
 };
 
-exports.deleteEstudiante = async (req, res) => {
+exports.borrarEstudiante = async (req, res) => {
   try {
     if (req.user.role !== 'admin_sau') {
       return res.status(403).json({ message: 'Acceso denegado. Solo administradores de SAU.' });

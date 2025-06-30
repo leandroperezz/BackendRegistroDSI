@@ -1,6 +1,6 @@
 const { body, validationResult } = require('express-validator');
 
-exports.validateScholarshipOffer = [
+exports.validarOfertaBeca = [
   body('requisitos')
     .notEmpty().withMessage('Los requisitos son requeridos.')
     .isString().withMessage('Los requisitos deben ser una cadena de texto.'),

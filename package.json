@@ -1,9 +1,10 @@
 {
   "name": "backendregistro",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,8 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.1",
     "mysql2": "^3.14.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
