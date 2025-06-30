@@ -23,7 +23,6 @@ exports.getEmpresaPorId = async (req, res) => {
   }
 };
 
-// Crear una nueva empresa (solo admin)
 exports.crearEmpresa = async (req, res) => {
   try {
     if (req.user.role !== 'admin_sau') {
