@@ -11,6 +11,10 @@ exports.getEstudiantes = async (req, res) => {
     }
     const estudiante = await Estudiante.findAll({
       attributes: { exclude: ['contrasena'] },
+      include: [
+        { model: PostulacionPasantia, as: 'postulacionesPasantias' },
+        { model: PostulacionBeca, as: 'postulacionesBecas' }
+      ]
     });
     res.status(200).json(estudiante);
   } catch (error) {
@@ -38,6 +42,10 @@ exports.getEstudiantePorId = async (req, res) => {
     }
     const estudiante = await Estudiante.findByPk(req.params.id, {
       attributes: { exclude: ['contrasena'] },
+      include: [
+        { model: PostulacionPasantia, as: 'postulacionesPasantias' },
+        { model: PostulacionBeca, as: 'postulacionesBecas' }
+      ]
     });
     if (!estudiante) {
       return res.status(404).json({ message: 'Estudiante no encontrado.' });

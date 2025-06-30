@@ -44,6 +44,43 @@ exports.validarLogin = [
     .notEmpty().withMessage('La contraseña es requerida.'),
 ];
 
+exports.validacionActualizacionEst = [
+  body('nombre')
+    .optional()
+    .isString().withMessage('El nombre debe ser una cadena de texto.'),
+  body('apellido')
+    .optional()
+    .isString().withMessage('El apellido debe ser una cadena de texto.'),
+  body('dni')
+    .optional()
+    .isNumeric().withMessage('El DNI debe ser un número válido.'),
+  body('email')
+    .optional()
+    .isEmail().withMessage('El email debe ser una dirección de correo válida.'),
+  body('contrasena')
+    .optional()
+    .isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres.'),
+  body('telefono')
+    .optional()
+    .isString().withMessage('El teléfono debe ser una cadena de texto.')
+    .isLength({ min: 10 }).withMessage('El teléfono debe tener al menos 10 dígitos.'),
+  body('carrera')
+    .optional()
+    .isString().withMessage('La carrera debe ser una cadena de texto.'),
+  body('año')
+    .optional()
+    .isInt({ min: 1, max: 10 }).withMessage('El año debe ser un número entero entre 1 y 10.'),
+  body('promedio')
+    .optional()
+    .isFloat({ min: 0, max: 10 }).withMessage('El promedio debe ser un número entre 0 y 10.'),
+  body('experiencia')
+    .optional()
+    .isString().withMessage('La experiencia debe ser una cadena de texto.'),
+  body('aptitudes')
+    .optional()
+    .isString().withMessage('Las aptitudes deben ser una cadena de texto.'),
+];
+
 exports.handleValidationErrors = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
