@@ -8,7 +8,7 @@ const { validarOfertaPasantia, handleValidationErrors } = require('../middleware
 router.get('/pasantias', pasantiasController.getAllPasantias);
 router.get('/pasantias/:id', pasantiasController.getPasantiaPorId);
 
-router.post('/admin/pasantias', autenticarToken, validarOfertaPasantia, handleValidationErrors, pasantiasController.crearPasania);
+router.post('/admin/pasantias', autenticarToken, validarOfertaPasantia, handleValidationErrors, pasantiasController.crearPasantia);
 router.put('/admin/pasantias/:id', autenticarToken, validarOfertaPasantia, handleValidationErrors, pasantiasController.updatePasantia);
 router.delete('/admin/pasantias/:id', autenticarToken, pasantiasController.borrarPasantia);
 

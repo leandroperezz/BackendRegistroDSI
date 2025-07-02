@@ -7,7 +7,7 @@ if (!JWT_SECRET) {
   process.exit(1);
 }
 
-const tokenAutenticacion = (req, res, next) => {
+const autenticarToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
@@ -24,4 +24,4 @@ const tokenAutenticacion = (req, res, next) => {
   });
 };
 
-module.exports = tokenAutenticacion;
+module.exports = autenticarToken;

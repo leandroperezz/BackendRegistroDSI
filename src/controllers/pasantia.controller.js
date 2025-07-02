@@ -11,7 +11,7 @@ exports.getAllPasantias = async (req, res) => {
 
     const pasantias = await Pasantia.findAll({
       where: whereClause,
-      include: [{ model: Company, as: 'Empresa' }],
+      include: [{ model: Empresa, as: 'empresa' }],
     });
     res.status(200).json(pasantias);
   } catch (error) {
@@ -23,7 +23,7 @@ exports.getAllPasantias = async (req, res) => {
 exports.getPasantiaPorId = async (req, res) => {
   try {
     const pasantia = await Pasantia.findByPk(req.params.id, {
-      include: [{ model: Company, as: 'company' }],
+      include: [{ model: Empresa, as: 'empresa' }],
     });
     if (!pasantia) {
       return res.status(404).json({ message: 'Pasantía no encontrada.' });
@@ -35,7 +35,7 @@ exports.getPasantiaPorId = async (req, res) => {
   }
 };
 
-exports.crearPasania = async (req, res) => {
+exports.crearPasantia = async (req, res) => {
   try {
     if (req.user.role !== 'admin_sau') {
       return res.status(403).json({ message: 'Acceso denegado. Solo administradores de SAU.' });

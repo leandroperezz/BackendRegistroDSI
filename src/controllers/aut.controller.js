@@ -11,6 +11,8 @@ if (!JWT_SECRET) {
 
 exports.login = async (req, res) => {
   const { legajo, contrasena } = req.body;
+  
+  console.log('Body recibido en login:', req.body);
 
   try {
     const estudiante = await Estudiante.findOne({ where: { legajo } });

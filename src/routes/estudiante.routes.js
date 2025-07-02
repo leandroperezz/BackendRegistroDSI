@@ -10,7 +10,7 @@ router.get('/admin/estudiantes/:id', autenticarToken, estudianteController.getEs
 router.put('/admin/estudiantes/:id', autenticarToken, validacionActualizacionEst, handleValidationErrors, estudianteController.actualizarEstudiante);
 
 
-router.post('/admin/estudiantes', validacionRegistroEst, handleValidationErrors, estudianteController.crearEstudiante); // Registro admin
+router.post('/estudiantes', validacionRegistroEst, handleValidationErrors, estudianteController.crearEstudiante); // Registro admin
 // router.post('/estudiantes', validacionRegistroEst, handleValidationErrors, estudianteController.crearEstudiante); // Registro público para estudiantes
 
 router.delete('/admin/estudiantes/:id', autenticarToken, estudianteController.borrarEstudiante);

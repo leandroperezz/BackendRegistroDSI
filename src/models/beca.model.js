@@ -32,7 +32,7 @@ const Beca = sequelize.define('Beca', {
     allowNull: true,
   },
 }, {
-  tableName: 'Becas',
+  tableName: 'becas',
   timestamps: true,
   underscored: true,
 });

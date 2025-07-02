@@ -30,7 +30,7 @@ const PostulacionPas = sequelize.define('PostulacionPas', {
     allowNull: true,
   },
 }, {
-  tableName: 'Postulaciones_pasantias',
+  tableName: 'postulaciones_pasantias',
   timestamps: true,
   underscored: true,
 });
